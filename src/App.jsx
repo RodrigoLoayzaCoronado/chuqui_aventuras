@@ -3,7 +3,8 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
-  Compass,
+  ChevronLeft,
+  ChevronRight,
   Leaf,
   MapPin,
   Search,
@@ -148,10 +149,11 @@ const destinations = [
     name: 'Villa Charcas',
     province: 'Nor Cinti',
     region: 'Cintis',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=-20.72262156211653%2C-64.88528615378962',  
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-20.72262156211653%2C-64.88528615378962&z=14&output=embed',
     category: 'Vida rural',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85',
-    imageAlt: 'Campos cultivados en un valle',
+    image: '/img/villaCharcas.jpeg',
+    imageAlt: 'Personajes con trajes tradicionales de Chuquisaca',
     intro:
       'Comunidades, cultivos y textiles tradicionales muestran una identidad propia en el corazón de los Cintis.',
     highlights: ['FEXAVICH', 'Tejidos y phullus', 'Rutas rurales y agrícolas'],
@@ -187,6 +189,66 @@ const filters = [
   { id: 'rural', label: 'Vida rural' },
 ];
 
+const foodImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85',
+    alt: 'Mesa con distintas preparaciones de comida, imagen ilustrativa',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=85',
+    alt: 'Plato de comida servido con ingredientes frescos, imagen ilustrativa',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85',
+    alt: 'Preparación de comida con vegetales y granos, imagen ilustrativa',
+  },
+];
+
+function FoodCarousel({ compact = false }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const activeImage = foodImages[activeImageIndex];
+
+  const showImage = (direction) => {
+    setActiveImageIndex(
+      (currentIndex) => (currentIndex + direction + foodImages.length) % foodImages.length,
+    );
+  };
+
+  return (
+    <div
+      className={`food-carousel${compact ? ' food-carousel-compact' : ''}`}
+      role="group"
+      aria-label="Carrusel de imágenes ilustrativas de comida"
+    >
+      <div className="food-carousel-image-wrap">
+        <img src={activeImage.src} alt={activeImage.alt} loading="lazy" />
+        <button
+          className="food-carousel-control food-carousel-previous"
+          type="button"
+          onClick={() => showImage(-1)}
+          aria-label="Mostrar imagen anterior de comida"
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          className="food-carousel-control food-carousel-next"
+          type="button"
+          onClick={() => showImage(1)}
+          aria-label="Mostrar siguiente imagen de comida"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+      <div className="food-carousel-caption">
+        <span>Imágenes ilustrativas</span>
+        <span aria-live="polite">
+          {activeImageIndex + 1} / {foodImages.length}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function DestinationCard({ destination, onOpen }) {
   return (
     <article className="destination-card">
@@ -196,7 +258,13 @@ function DestinationCard({ destination, onOpen }) {
         type="button"
         aria-label={`Descubrir ${destination.name}`}
       >
-        <span className="card-image-wrap">
+        <span
+          className={
+            destination.name === 'Villa Charcas'
+              ? 'card-image-wrap card-image-wrap-contain'
+              : 'card-image-wrap'
+          }
+        >
           <img src={destination.image} alt={destination.imageAlt} loading="lazy" />
           <span className="card-category">{destination.category}</span>
           <span className="card-arrow" aria-hidden="true">
@@ -213,6 +281,11 @@ function DestinationCard({ destination, onOpen }) {
           <span className="card-highlights">{destination.highlights.slice(0, 2).join(' · ')}</span>
         </span>
       </button>
+      <div className="card-food-note">
+        <span className="card-food-label">Comida típica</span>
+        <span>{destination.flavor}</span>
+        <FoodCarousel compact />
+      </div>
       {destination.mapUrl && (
         <a
           className="destination-map-link"
@@ -249,7 +322,15 @@ function DestinationDialog({ destination, onClose }) {
         <button className="dialog-close" onClick={onClose} type="button" aria-label="Cerrar ficha">
           <X size={20} />
         </button>
-        <img src={destination.image} alt={destination.imageAlt} className="dialog-image" />
+        <img
+          src={destination.image}
+          alt={destination.imageAlt}
+          className={
+            destination.name === 'Villa Charcas'
+              ? 'dialog-image dialog-image-contain'
+              : 'dialog-image'
+          }
+        />
         <div className="dialog-body">
           <span className="dialog-eyebrow">
             {destination.province} · {destination.region}
@@ -298,8 +379,9 @@ function DestinationDialog({ destination, onClose }) {
             ))}
           </ul>
           <div className="flavor-note">
-            <span>Un sabor para recordar</span>
+            <span>Comida típica</span>
             <strong>{destination.flavor}</strong>
+            <FoodCarousel />
           </div>
           <p className="local-note">
             Confirma localmente accesos, horarios y disponibilidad antes de organizar tu visita.
@@ -337,11 +419,8 @@ function App() {
   return (
     <>
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="ChuquiAventuras, inicio">
-          <span className="brand-mark">
-            <Compass size={24} strokeWidth={1.7} />
-          </span>
-          <span>chuqui<span className="brand-accent">aventuras</span></span>
+        <a className="site-logo-link" href="#inicio" aria-label="ChuquiAventuras, inicio">
+          <img className="site-logo" src="/img/logo.jpeg" alt="Logo de ChuquiAventuras" />
         </a>
         <nav className="main-nav" aria-label="Navegación principal">
           <a href="#destinos">Destinos</a>
@@ -524,11 +603,12 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <a className="brand footer-brand" href="#inicio">
-          <span className="brand-mark">
-            <Compass size={23} strokeWidth={1.7} />
-          </span>
-          <span>chuqui<span className="brand-accent">aventuras</span></span>
+        <a
+          className="site-logo-link footer-logo-link"
+          href="#inicio"
+          aria-label="ChuquiAventuras, inicio"
+        >
+          <img className="site-logo" src="/img/logo.jpeg" alt="Logo de ChuquiAventuras" />
         </a>
         <p>Historias, cultura y paisajes de Chuquisaca.</p>
         <span className="footer-note">Contenido basado en las investigaciones compartidas.</span>

@@ -1,19 +1,25 @@
+@font-face {
+  font-family: 'Jurassic Park';
+  src: url('/Jurassic_Park.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   font-family: 'DM Sans', sans-serif;
-  color: #24312b;
-  background: #f7f6f0;
+  color: #171717;
+  background: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
   font-weight: 400;
-  --green: #244b38;
-  --deep-green: #1c3d2e;
-  --lime: #d2e16b;
-  --cream: #f7f6f0;
-  --muted: #777c72;
-  --line: #e5e4dc;
+  --green: #174d32;
+  --deep-green: #174d32;
+  --lime: #78c850;
+  --cream: #fff;
+  --muted: #171717;
+  --line: #174d3233;
 }
 
 * {
@@ -49,8 +55,17 @@ a {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #7d984c;
+  outline: 3px solid var(--lime);
   outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+.card-title {
+  font-family: 'Jurassic Park', 'Manrope', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .site-header {
@@ -63,6 +78,24 @@ input:focus-visible {
   justify-content: space-between;
   padding: 0 7.05%;
   background: var(--cream);
+}
+
+.site-logo-link {
+  display: inline-flex;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  background: var(--green);
+}
+
+.site-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand {
@@ -81,12 +114,12 @@ input:focus-visible {
   width: 37px;
   height: 37px;
   place-items: center;
-  border: 1px solid #c8d0bb;
+  border: 2px solid var(--lime);
   border-radius: 50%;
 }
 
 .brand-accent {
-  color: #9ca94b;
+  color: var(--green);
 }
 
 .main-nav {
@@ -94,7 +127,7 @@ input:focus-visible {
   align-items: center;
   gap: 41px;
   margin-left: 80px;
-  color: #505d53;
+  color: var(--deep-green);
   font-size: 13px;
   font-weight: 500;
 }
@@ -111,7 +144,7 @@ input:focus-visible {
 .text-link:hover,
 .experience-link:hover,
 .back-top:hover {
-  color: #87973b;
+  color: var(--green);
 }
 
 .header-cta {
@@ -119,8 +152,8 @@ input:focus-visible {
   align-items: center;
   gap: 12px;
   padding: 12px 17px;
-  border: 1px solid #c9cfc3;
-  border-radius: 5px;
+  border: 2px solid var(--green);
+  border-radius: 999px;
   color: var(--deep-green);
   font-size: 12px;
   font-weight: 600;
@@ -138,7 +171,7 @@ input:focus-visible {
   min-height: min(700px, calc(100svh - 82px));
   align-items: center;
   overflow: hidden;
-  background: #4d5a4d;
+  background: var(--green);
   color: white;
 }
 
@@ -148,6 +181,10 @@ input:focus-visible {
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+img {
+  max-width: 100%;
 }
 
 .hero-image {
@@ -196,21 +233,20 @@ input:focus-visible {
 .section-heading h2,
 .experience-copy h2,
 .destination-dialog h2 {
-  font-family: 'Manrope', sans-serif;
-  letter-spacing: -2.4px;
+  letter-spacing: 0.5px;
 }
 
 .hero h1 {
   margin: 23px 0 16px;
   font-size: clamp(57px, 7.2vw, 92px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.03;
 }
 
 .hero h1 em,
 .experience-copy h2 em {
-  color: #d8e378;
-  font-weight: 500;
+  color: var(--lime);
+  font-weight: 400;
 }
 
 .hero-content > p {
@@ -226,9 +262,9 @@ input:focus-visible {
   gap: 22px;
   margin-top: 31px;
   padding: 15px 19px;
-  border-radius: 4px;
-  background: #d8e378;
-  color: #273a2c;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--deep-green);
   font-size: 12px;
   font-weight: 700;
   transition: transform 160ms ease, background 160ms ease;
@@ -236,7 +272,7 @@ input:focus-visible {
 
 .hero-button:hover {
   transform: translateY(-2px);
-  background: #e5ef9b;
+  background: #fff;
 }
 
 .hero-caption {
@@ -297,7 +333,7 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 13px;
-  color: #78826b;
+  color: var(--green);
   font-size: 9px;
   letter-spacing: 1.8px;
 }
@@ -305,7 +341,7 @@ input:focus-visible {
 .overline-dash {
   width: 32px;
   height: 1px;
-  background: #acb594;
+  background: var(--lime);
 }
 
 .intro-copy {
@@ -322,12 +358,12 @@ input:focus-visible {
   margin: 0;
   color: var(--deep-green);
   font-size: clamp(38px, 4.3vw, 56px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.13;
 }
 
 .intro-copy h2 span {
-  color: #a1aa5c;
+  color: var(--green);
 }
 
 .intro-description p {
@@ -366,7 +402,6 @@ input:focus-visible {
 
 .fact-number {
   color: var(--green);
-  font-family: 'Manrope', sans-serif;
   font-size: 32px;
   font-weight: 600;
   letter-spacing: -1.6px;
@@ -378,8 +413,8 @@ input:focus-visible {
   height: 36px;
   place-items: center;
   border-radius: 50%;
-  background: #e9ecdc;
-  color: #6b7e3b;
+  background: #78c85033;
+  color: var(--green);
 }
 
 .fact-divider {
@@ -402,13 +437,24 @@ input:focus-visible {
 .section-eyebrow {
   display: inline-block;
   margin-bottom: 13px;
-  color: #78826b;
+  color: var(--green);
   font-size: 9px;
   letter-spacing: 1.8px;
 }
 
 .section-heading h2 {
   font-size: clamp(37px, 4vw, 50px);
+}
+
+.section-heading h2::after {
+  display: block;
+  width: 54px;
+  height: 5px;
+  margin-top: 8px;
+  transform: rotate(-2deg);
+  border-radius: 999px;
+  background: var(--lime);
+  content: '';
 }
 
 .section-heading > p {
@@ -438,8 +484,8 @@ input:focus-visible {
 .filter-button {
   min-height: 34px;
   padding: 0 13px;
-  border: 1px solid transparent;
-  border-radius: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   background: transparent;
   color: #777c72;
   cursor: pointer;
@@ -448,14 +494,14 @@ input:focus-visible {
 }
 
 .filter-button:hover {
-  border-color: #d7dbca;
+  border-color: var(--lime);
   color: var(--green);
 }
 
 .filter-button.active {
   border-color: var(--green);
   background: var(--green);
-  color: white;
+  color: #fff;
 }
 
 .search-field {
@@ -491,6 +537,11 @@ input:focus-visible {
   min-width: 0;
   overflow: hidden;
   color: inherit;
+  transition: transform 180ms ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px) rotate(-0.35deg);
 }
 
 .destination-card-main {
@@ -509,6 +560,7 @@ input:focus-visible {
   display: block;
   height: 224px;
   overflow: hidden;
+  border-radius: 16px;
   background: #d9d9cc;
 }
 
@@ -525,6 +577,22 @@ input:focus-visible {
   height: 100%;
   object-fit: cover;
   transition: transform 450ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.card-image-wrap-contain {
+  background: #fff;
+}
+
+.card-image-wrap-contain::after {
+  display: none;
+}
+
+.card-image-wrap-contain img {
+  object-fit: contain;
+}
+
+.destination-card:hover .card-image-wrap-contain img {
+  transform: none;
 }
 
 .destination-card:hover .card-image-wrap img {
@@ -582,10 +650,8 @@ input:focus-visible {
 .card-title {
   margin-top: 8px;
   color: var(--deep-green);
-  font-family: 'Manrope', sans-serif;
   font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
+  font-weight: 400;
 }
 
 .card-intro {
@@ -605,26 +671,116 @@ input:focus-visible {
   line-height: 1.5;
 }
 
+.card-food-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 10px 11px;
+  border-radius: 14px;
+  background: #78c85022;
+  color: var(--green);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.food-carousel {
+  margin-top: 12px;
+}
+
+.food-carousel-image-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(140px, 20vw, 190px);
+  overflow: hidden;
+  border-radius: 12px;
+  background: #d9d9cc;
+}
+
+.food-carousel-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food-carousel-control {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.food-carousel-control:hover {
+  background: #171717;
+}
+
+.food-carousel-control:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.food-carousel-previous {
+  left: 8px;
+}
+
+.food-carousel-next {
+  right: 8px;
+}
+
+.food-carousel-caption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  color: var(--green);
+  font-size: 9px;
+}
+
+.food-carousel-compact {
+  margin-top: 6px;
+}
+
+.food-carousel-compact .food-carousel-image-wrap {
+  height: clamp(110px, 15vw, 150px);
+}
+
+.card-food-label {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
 .destination-map-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin: 12px 2px 0;
-  color: #526846;
+  color: var(--green);
   font-size: 10px;
   font-weight: 600;
   transition: color 150ms ease;
 }
 
 .destination-map-link:hover {
-  color: #87973b;
+  color: var(--green);
 }
 
 .map-preview-card {
   margin: 0 0 17px;
   overflow: hidden;
-  border: 1px solid #e3e4d9;
-  border-radius: 5px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
   background: #fff;
 }
 
@@ -633,7 +789,7 @@ input:focus-visible {
   width: 100%;
   height: 164px;
   border: 0;
-  background: #e9ecdf;
+  background: #78c85022;
 }
 
 .map-preview-footer,
@@ -653,7 +809,7 @@ input:focus-visible {
 .map-preview-place {
   min-width: 0;
   gap: 8px;
-  color: #526846;
+  color: var(--green);
 }
 
 .map-preview-place > span {
@@ -679,13 +835,13 @@ input:focus-visible {
 .map-preview-open {
   flex-shrink: 0;
   gap: 4px;
-  color: #526846;
+  color: var(--green);
   font-size: 10px;
   font-weight: 700;
 }
 
 .map-preview-open:hover {
-  color: #87973b;
+  color: var(--deep-green);
 }
 
 .results-count {
@@ -750,13 +906,12 @@ input:focus-visible {
 }
 
 .experience-copy .section-eyebrow {
-  color: #c5ce8d;
+  color: var(--lime);
 }
 
 .experience-copy h2 {
   color: white;
   font-size: clamp(34px, 3.5vw, 46px);
-  letter-spacing: -2px;
 }
 
 .experience-copy > p {
@@ -768,7 +923,7 @@ input:focus-visible {
 }
 
 .experience-link {
-  color: #d8e378;
+  color: var(--lime);
 }
 
 .experience-stamp {
@@ -792,13 +947,9 @@ input:focus-visible {
   background: var(--cream);
 }
 
-.footer-brand {
-  font-size: 16px;
-}
-
-.footer-brand .brand-mark {
-  width: 33px;
-  height: 33px;
+.footer-logo-link {
+  width: 84px;
+  height: 84px;
 }
 
 .site-footer > p {
@@ -816,7 +967,7 @@ input:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #55654d;
+  color: var(--green);
   font-size: 10px;
   font-weight: 600;
 }
@@ -829,7 +980,7 @@ input:focus-visible {
   overflow-y: auto;
   padding: 26px;
   place-items: center;
-  background: rgb(18 31 23 / 68%);
+  background: rgb(23 77 50 / 68%);
   backdrop-filter: blur(4px);
 }
 
@@ -840,6 +991,8 @@ input:focus-visible {
   max-height: min(700px, calc(100svh - 52px));
   grid-template-columns: 0.85fr 1.15fr;
   overflow: auto;
+  border: 3px solid var(--lime);
+  border-radius: 20px;
   background: var(--cream);
   box-shadow: 0 22px 90px rgb(0 0 0 / 25%);
 }
@@ -867,12 +1020,17 @@ input:focus-visible {
   object-fit: cover;
 }
 
+.dialog-image.dialog-image-contain {
+  background: #fff;
+  object-fit: contain;
+}
+
 .dialog-body {
   padding: 53px 39px 36px;
 }
 
 .dialog-eyebrow {
-  color: #7d8666;
+  color: var(--green);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.3px;
@@ -895,8 +1053,7 @@ input:focus-visible {
 .dialog-body h3 {
   margin: 25px 0 12px;
   color: var(--deep-green);
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .dialog-highlights {
@@ -904,7 +1061,7 @@ input:focus-visible {
   gap: 10px;
   margin: 0;
   padding: 0;
-  color: #5f6c56;
+  color: var(--green);
   font-size: 11px;
   list-style: none;
 }
@@ -921,18 +1078,19 @@ input:focus-visible {
   gap: 6px;
   margin-top: 24px;
   padding: 14px 15px;
-  background: #ebeddf;
+  border-radius: 14px;
+  background: #78c85022;
 }
 
 .flavor-note span {
-  color: #7d8666;
+  color: var(--green);
   font-size: 9px;
   letter-spacing: 0.6px;
   text-transform: uppercase;
 }
 
 .flavor-note strong {
-  color: #40553f;
+  color: var(--deep-green);
   font-size: 11px;
   line-height: 1.5;
 }
@@ -1008,6 +1166,11 @@ input:focus-visible {
     padding: 0 5%;
   }
 
+  .site-logo-link {
+    width: 58px;
+    height: 58px;
+  }
+
   .brand {
     gap: 7px;
     font-size: 16px;
@@ -1052,7 +1215,7 @@ input:focus-visible {
   .hero h1 {
     margin-top: 21px;
     font-size: clamp(54px, 13vw, 75px);
-    letter-spacing: -3px;
+    letter-spacing: 0.5px;
   }
 
   .hero-content > p {
@@ -1097,7 +1260,7 @@ input:focus-visible {
 
   .intro-copy h2 {
     font-size: clamp(39px, 10vw, 53px);
-    letter-spacing: -2px;
+    letter-spacing: 0.5px;
   }
 
   .intro-description p {
@@ -1143,7 +1306,7 @@ input:focus-visible {
 
   .section-heading h2 {
     font-size: 41px;
-    letter-spacing: -2px;
+    letter-spacing: 0.5px;
   }
 
   .section-heading > p {
@@ -1185,7 +1348,8 @@ input:focus-visible {
   }
 
   .card-image-wrap {
-    height: clamp(220px, 65vw, 310px);
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .card-title {
@@ -1194,6 +1358,21 @@ input:focus-visible {
 
   .card-intro {
     min-height: 0;
+  }
+
+  .food-carousel-image-wrap {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .food-carousel-compact .food-carousel-image-wrap {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .food-carousel-control {
+    width: 40px;
+    height: 40px;
   }
 
   .results-count {
@@ -1205,7 +1384,8 @@ input:focus-visible {
   }
 
   .experience-photo {
-    min-height: 270px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
 
   .experience-copy {
@@ -1243,6 +1423,11 @@ input:focus-visible {
     position: relative;
   }
 
+  .footer-logo-link {
+    width: 72px;
+    height: 72px;
+  }
+
   .dialog-backdrop {
     padding: 14px;
     place-items: center;
@@ -1255,8 +1440,15 @@ input:focus-visible {
 
   .dialog-image {
     display: block;
-    height: 185px;
+    width: 100%;
+    height: auto;
     min-height: 0;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .dialog-image.dialog-image-contain {
+    aspect-ratio: auto;
   }
 
   .dialog-body {
