@@ -391,7 +391,7 @@ function DestinationDialog({ destination, onClose }) {
     </div>
   );
 }
-
+//
 function App() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
