@@ -37,6 +37,8 @@ const destinations = [
     name: 'Azurduy',
     province: 'Azurduy',
     region: 'Valles',
+    mapUrl: 'https://www.google.com/maps/place/Azurduy/@-20.1063649,-64.4137001,2480m/data=!3m2!1e3!4b1!4m6!3m5!1s0x93f8266165984571:0x83e40dc2deebdfd1!8m2!3d-20.1060273!4d-64.4126487!16s%2Fg%2F1211qq3p!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-20.1060273%2C-64.4126487&z=14&output=embed',
     category: 'Sabores locales',
     image:
       'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85',
@@ -54,6 +56,8 @@ const destinations = [
     province: 'Belisario Boeto',
     region: 'Valles',
     category: 'Cultura viva',
+    mapUrl: 'https://maps.app.goo.gl/gjR4vtSPhPdLwWqUA',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-19.1225419%2C-64.3234968&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Lago y montañas en un paisaje de altura',
@@ -66,7 +70,7 @@ const destinations = [
     kind: 'culture',
   },
   {
-    name: 'Zudáñez',
+    name: 'Zudanez',
     province: 'Jaime Zudáñez',
     region: 'Valles',
     category: 'Naturaleza',
@@ -86,6 +90,8 @@ const destinations = [
     province: 'Sud Cinti',
     region: 'Cintis',
     category: 'Naturaleza',
+    mapUrl: 'https://maps.app.goo.gl/k1LUo1eDrHJtW9M77',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-20.8249787%2C-64.9445087&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Cordillera rocosa bajo un cielo despejado',
@@ -102,6 +108,8 @@ const destinations = [
     province: 'Nor Cinti',
     region: 'Cintis',
     category: 'Sabores locales',
+    mapUrl: 'https://maps.app.goo.gl/8X5JQJ7Y9R8QJ7Y9',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-19.8045295%2C-63.9558986&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Viñedos bañados por la luz de la tarde',
@@ -118,6 +126,8 @@ const destinations = [
     province: 'Tomina',
     region: 'Valles',
     category: 'Vida rural',
+    mapUrl: 'https://maps.app.goo.gl/z9TRWrYTkmM7VGAP7',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-19.4900584%2C-64.4747473&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Camino que cruza un paisaje rural',
@@ -134,6 +144,8 @@ const destinations = [
     province: 'Hernando Siles',
     region: 'Chaco',
     category: 'Aventura',
+    mapUrl: 'https://maps.app.goo.gl/8X5JQJ7Y9R8QJ7Y9',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-19.8045295%2C-63.9558986&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Sendero entre árboles de un bosque verde',
@@ -163,10 +175,12 @@ const destinations = [
     kind: 'rural',
   },
   {
-    name: 'Villa Vaca Guzmán',
+    name: 'Muyupampa',
     province: 'Luis Calvo',
     region: 'Chaco',
     category: 'Cultura viva',
+    mapUrl: 'https://maps.app.goo.gl/PeYMQQJbuLMbb4wX8',
+    mapEmbedUrl: 'https://maps.google.com/maps?q=-19.4900584%2C-64.4747473&z=14&output=embed',
     image:
       'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=85',
     imageAlt: 'Bosque chaqueño de vegetación frondosa',
@@ -174,7 +188,7 @@ const destinations = [
       'Muyupampa abre la puerta a paisajes chaqueños y a la cultura guaraní de Chuquisaca.',
     highlights: ['Serranía del Iñao', 'Comunidad de Tentayapi', 'Arete Guasu'],
     detail:
-      'Villa Vaca Guzmán, también conocida como Muyupampa, es la capital de la provincia Luis Calvo. Su entorno reúne bosques, serranías y una fuerte relación con la cultura guaraní y el Chaco.',
+      'Muyupampa es la capital de la provincia Luis Calvo. Su entorno reúne bosques, serranías y una fuerte relación con la cultura guaraní y el Chaco.',
     flavor: 'Pacumutu, chivo a la cruz y macerados de cítricos',
     kind: 'culture',
   },
@@ -517,7 +531,7 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="section-eyebrow">ARMA TU PROPIO RECORRIDO</span>
-              <h2>¿A dónde vamos?</h2>
+              <h2>¿A donde vamos?</h2>
             </div>
             <p>
               Busca ese lugar que te llama.
